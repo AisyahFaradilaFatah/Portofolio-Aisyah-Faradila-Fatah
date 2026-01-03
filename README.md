@@ -3,10 +3,6 @@
 
 Mahasiswa semester 5 dengan spesialisasi pada Artificial Intelligence (AI) dan Mekatronika. Memiliki keahlian teknis dalam pemrograman, pengembangan perangkat lunak, serta analisis data. Berfokus pada pemanfaatan data kompleks untuk menciptakan solusi inovatif yang mendukung pengambilan keputusan strategis.
 
-### 🔭 Current Focus
-* Mengembangkan sistem *Precision Agriculture* menggunakan **Deep Learning**.
-* Eksplorasi algoritma **Machine Learning** untuk data kesehatan (Healthcare).
-
 ### 🛠️ Tech Stack
 * **Languages:** Python, C++, PHP, SQL
 * **Data & AI:** Pandas, Scikit-Learn, OpenCV, Fuzzy Logic
