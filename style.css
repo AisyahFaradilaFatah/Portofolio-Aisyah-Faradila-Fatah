@@ -231,7 +231,7 @@ section:nth-child(even) {
     margin: 0 auto;
     box-shadow: 0 20px 40px rgba(13, 110, 253, 0.15);
     transition: all 0.3s ease;
-    object-position: center; /* Fokus ke wajah */
+    object-position: top;
 }
 
 .profile-image:hover {
@@ -660,4 +660,5 @@ footer {
 
 footer p {
     margin-bottom: 0.5rem;
+
 }
