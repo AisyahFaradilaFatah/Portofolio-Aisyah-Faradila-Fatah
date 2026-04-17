@@ -16,9 +16,9 @@ Mahasiswa semester 6 Mekatronika dan Kecerdasan Buatan dengan minat yang besar d
 | Project | Tech Stack | Deskripsi |
 | :--- | :--- | :--- |
 | **[Business Analytic Dashboard]** | Looker Studio, SQL | Sistem pemantauan metrik interaktif yang mengolah data transaksi mentah menjadi *insight* komprehensif untuk mendukung *data-driven decision making*. |
-| **[IDP Multi-Rekening System]** | Python, PHP, PostgreSQL | *End-to-end data pipeline* dengan teknologi OCR untuk mengekstrak dan menstrukturkan data transaksi dari dokumen PDF secara otomatis. |
+| **[IDP Multi-Rekening System]** | Python, PHP, SQL | *End-to-end data pipeline* dengan teknologi OCR untuk mengekstrak dan menstrukturkan data transaksi dari dokumen PDF secara otomatis. |
 | **[Smart Monitoring Nutrition]** | Python, ESP32, Firebase | Sistem *Precision Agriculture* berbasis IoT dan AI untuk memantau status nutrisi tanaman padi secara *real-time* dengan akurasi ML hingga 98%. |
-| **[BPJS Predictive Model]** | Python, Scikit-Learn | Pemodelan Machine Learning untuk memprediksi durasi jeda tindakan pasien berdasarkan dataset historis berskala besar. |
+| **[BPJS Predictive Model]** | Google Colab, Decision Tree | Pemodelan Machine Learning untuk memprediksi durasi jeda tindakan pasien berdasarkan dataset historis berskala besar. |
 
 ### 🏆 Global Certifications
 * **Machine Learning with Python** – IBM
