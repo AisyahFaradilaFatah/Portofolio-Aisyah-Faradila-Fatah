@@ -3,17 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Aisyah Faradila Fatah</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Aisyah Faradila Fatah | AI & Data Analytics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ========== CORE VARIABLES & RESET ========== */
+        :root {
+            --primary: #0d6efd;
+            --accent: #00d4ff;
+            --text-main: #1a1a1a;
+            --text-muted: #555555;
+            --bg-body: #ffffff;
+            --bg-alt: #f8f9fa;
+            --border-color: #e0e7ff;
+            --radius: 12px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            scroll-behavior: smooth;
+        }
+
+        code, pre { font-family: 'JetBrains Mono', monospace; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ========== UTILITIES ========== */
+        .gradient-text {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            color: var(--text-main);
+            text-align: center;
+        }
+
+        .max-w-6xl { max-width: 1100px; margin: 0 auto; padding: 0 1.5rem; }
+        section { padding: 6rem 0; }
+        section:nth-child(even) { background-color: var(--bg-alt); }
+
+        /* ========== NAVIGATION ========== */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 50; padding: 1.2rem 0;
+        }
+
+        .nav-container {
+            max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .nav-logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; }
+        .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+        .nav-links a { font-weight: 500; font-size: 0.95rem; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        /* ========== HERO SECTION ========== */
+        .profile-hero {
+            padding-top: 10rem; padding-bottom: 6rem;
+            background: radial-gradient(circle at top right, rgba(0,212,255,0.05), transparent 40%),
+                        radial-gradient(circle at bottom left, rgba(13,110,253,0.05), transparent 40%);
+        }
+
+        .profile-container {
+            max-width: 1100px; margin: 0 auto; padding: 0 1.5rem;
+            display: grid; grid-template-columns: 320px 1fr; gap: 4rem; align-items: center;
+        }
+
+        .profile-image-wrapper {
+            width: 100%;
+            max-width: 320px;
+            height: 350px;
+            margin: 0 auto;
+            border-radius: 24px;
+            border: 4px solid #fff;
+            box-shadow: 0 20px 40px rgba(13, 110, 253, 0.15);
+            overflow: hidden;
+            background: var(--bg-alt);
+            transition: all 0.3s ease;
+        }
+
+        .profile-image-wrapper:hover {
+            border-color: var(--primary);
+            box-shadow: 0 25px 50px rgba(13, 110, 253, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+            margin: 0;
+        }
+
+        .profile-name { font-size: 3.2rem; font-weight: 800; line-height: 1.1; margin-bottom: 0.5rem; letter-spacing: -1px; }
+        .profile-title { font-size: 1.2rem; color: var(--primary); font-weight: 600; margin-bottom: 1.5rem; font-family: 'JetBrains Mono', monospace; }
+        
+        .profile-bio {
+            color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 600px;
+        }
+
+        .profile-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: #fff; padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600;
+            display: inline-flex; align-items: center; gap: 8px;
+            box-shadow: 0 8px 20px rgba(13, 110, 253, 0.25); transition: 0.3s;
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(13, 110, 253, 0.35); }
+
+        .btn-outline {
+            border: 2px solid var(--border-color); color: var(--text-main);
+            padding: 0.8rem 2rem; border-radius: 8px; font-weight: 600;
+            display: inline-flex; align-items: center; gap: 8px; transition: 0.3s;
+        }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary); background: rgba(13, 110, 253, 0.05); }
+
+        /* ========== ABOUT SECTION ========== */
+        .about-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; }
+        .about-text h3 { font-size: 1.3rem; color: var(--primary); margin-bottom: 1rem; margin-top: 1.5rem; }
+        .about-text h3:first-child { margin-top: 0; }
+        .about-text p { color: var(--text-muted); margin-bottom: 1.2rem; }
+        
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .stat-card {
+            background: #fff; border: 1px solid var(--border-color);
+            padding: 2rem; border-radius: var(--radius); text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: 0.3s;
+        }
+        .stat-card:hover { border-color: var(--primary); transform: translateY(-5px); }
+        .stat-num { font-size: 2.2rem; font-weight: 800; color: var(--primary); line-height: 1; margin-bottom: 0.5rem; }
+        .stat-label { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; }
+
+        /* ========== TECH STACK ========== */
+        .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .tech-card {
+            background: #fff; border: 1px solid var(--border-color);
+            padding: 2.5rem; border-radius: var(--radius);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+        }
+        .tech-card h3 { font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--text-main); }
+        .skill-group { margin-bottom: 1.5rem; }
+        .skill-group h4 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.8rem; }
+        
+        .badge {
+            background: var(--bg-alt); border: 1px solid var(--border-color);
+            color: var(--primary); padding: 0.4rem 1rem; border-radius: 50px;
+            font-size: 0.85rem; font-weight: 600; display: inline-block; margin: 0 0.5rem 0.5rem 0;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* ========== PROJECTS ========== */
+        .project-card {
+            background: #fff; border: 1px solid var(--border-color);
+            border-radius: var(--radius); overflow: hidden;
+            display: grid; grid-template-columns: 1fr 1.5fr; align-items: stretch;
+            margin-bottom: 3rem; box-shadow: 0 4px 20px rgba(0,0,0,0.03); transition: 0.3s;
+        }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(13, 110, 253, 0.1); border-color: var(--primary); }
+        
+        .img-container { height: 100%; min-height: 300px; background: var(--bg-alt); }
+        .project-img { width: 100%; height: 100%; object-fit: cover; }
+        
+        .project-info { padding: 2.5rem; }
+        .project-info h3 { font-size: 1.6rem; color: var(--text-main); margin-bottom: 1rem; }
+        .project-info p { color: var(--text-muted); margin-bottom: 1.5rem; }
+        
+        .algo-box {
+            background: rgba(13, 110, 253, 0.04); border-left: 3px solid var(--primary);
+            padding: 1.2rem; border-radius: 0 8px 8px 0; margin-bottom: 1.5rem;
+        }
+        .algo-box h4 { font-size: 0.95rem; color: var(--primary); margin-bottom: 0.5rem; }
+        .algo-box ul { list-style: none; }
+        .algo-box li { font-size: 0.95rem; color: var(--text-main); margin-bottom: 0.3rem; padding-left: 1.2rem; position: relative; }
+        .algo-box li::before { content: '▹'; position: absolute; left: 0; color: var(--primary); }
+        
+        .project-specs { border-top: 1px solid var(--border-color); padding-top: 1.5rem; display: flex; flex-direction: column; gap: 0.5rem; }
+        .spec-item { font-size: 0.9rem; color: var(--text-muted); }
+        .spec-item strong { color: var(--text-main); }
+
+        /* ========== EDUCATION ========== */
+        .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .edu-card { display: flex; gap: 1.5rem; background: #fff; padding: 2rem; border-radius: var(--radius); border: 1px solid var(--border-color); }
+        .edu-icon { font-size: 2.5rem; }
+        .edu-details h3 { font-size: 1.2rem; color: var(--text-main); margin-bottom: 0.3rem; }
+        .edu-details .subtitle { color: var(--primary); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.5rem; }
+        .edu-details p { color: var(--text-muted); font-size: 0.9rem; }
+        .edu-details ul { list-style: none; margin-top: 1rem; }
+        .edu-details li { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
+        .edu-details li strong { color: var(--text-main); }
+
+        /* ========== CONTACT ========== */
+        .contact-wrap { text-align: center; max-width: 600px; margin: 0 auto; }
+        .contact-wrap p { color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem; }
+        .contact-buttons { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+
+        footer { text-align: center; padding: 2rem 0; border-top: 1px solid var(--border-color); color: var(--text-muted); font-size: 0.9rem; }
+
+        /* ========== RESPONSIVE ========== */
+        @media (max-width: 768px) {
+            .profile-container { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+            .profile-cta { justify-content: center; }
+            .about-grid, .skills-grid, .edu-grid, .project-card { grid-template-columns: 1fr; }
+            .img-container { min-height: 250px; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
 <body>
+
     <nav>
         <div class="nav-container">
             <div class="nav-logo gradient-text">Aisyah Faradila Fatah</div>
             <ul class="nav-links">
-                <li><a href="#profile">Profil</a></li>
                 <li><a href="#about">Tentang</a></li>
-                <li><a href="#skills">Tech Stack</a></li>
+                <li><a href="#skills">Keahlian</a></li>
                 <li><a href="#projects">Proyek</a></li>
                 <li><a href="#contact">Kontak</a></li>
             </ul>
@@ -22,38 +244,22 @@
 
     <section id="profile" class="profile-hero">
         <div class="profile-container">
-            <img src="foto.jpeg" alt="Foto Profil" class="profile-image">
+            <div class="profile-image-wrapper">
+                <img src="foto.jpeg" alt="Aisyah Faradila Fatah" class="profile-image">
+            </div>
             
             <div class="profile-content">
                 <h1 class="profile-name">Aisyah Faradila Fatah</h1>
-                <p class="profile-title">Mekatronika dan Kecerdasan Buatan, UPI</p>
-                
-                <div class="expertise-highlight">
-                    <div class="expertise-item mekatronika">
-                        <span class="expertise-label">Mekatronika</span>
-                        <span class="expertise-percent">20%</span>
-                    </div>
-                    <div class="expertise-separator">→</div>
-                    <div class="expertise-item ai-focus">
-                        <span class="expertise-label">AI (Focus)</span>
-                        <span class="expertise-percent">80%</span>
-                    </div>
-                </div>
-
+                <p class="profile-title">AI & Data Analytics Enthusiast</p>
                 <p class="profile-bio">
-                    Mahasiswa mekatronika semester 6 yang sedang memperdalam AI, computer vision, dan penerapan model machine learning. Menggabungkan pemahaman hardware, sensor, dan kontrol dengan algoritma AI yang efisien untuk membangun sistem yang lebih cerdas, cepat, dan aplikatif.
+                    Mahasiswa semester 6 Mekatronika dan Kecerdasan Buatan dengan minat yang besar di bidang AI dan Data. Terampil dalam bahasa pemrograman, manajemen basis data, serta visualisasi interaktif. Memiliki pengalaman terapan dalam mengeksekusi proyek <i>Machine Learning end-to-end</i>.
                 </p>
-
-                <div class="profile-cta" style="display: flex; gap: 10px; flex-wrap: wrap;">
-                    
-                    <a href="CV_Aisyah_Faradila_Fatah.pdf" class="secondary-button" download style="display: inline-flex; align-items: center; gap: 5px;">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
-                        </svg>
-                        Lihat CV
+                <div class="profile-cta">
+                    <a href="portfolio.pdf" target="_blank" class="btn-primary">Lihat Portofolio</a>
+                    <a href="cvAisyahFaradilaFatah.pdf" class="btn-outline" download>
+                        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                        Unduh CV
                     </a>
-
-                    <a href="#contact" class="secondary-button">Kontak</a>
                 </div>
             </div>
         </div>
@@ -61,48 +267,31 @@
 
     <section id="about">
         <div class="max-w-6xl">
-            <h2 class="section-title">Tentang Saya</h2>
-            
-            <div class="about-content-flex">
+            <h2 class="section-title">Profil Profesional</h2>
+            <div class="about-grid">
                 <div class="about-text">
-                    <h3>Mengapa AI & Robotika?</h3>
-                    <p>
-                        Saya percaya masa depan adalah kombinasi dari <strong>physical intelligence</strong> dan <strong>artificial intelligence</strong>. Robot yang cerdas bukan hanya tentang gerakan mekanis, tapi tentang bagaimana sistem tersebut bisa belajar, beradaptasi, dan membuat keputusan dalam waktu nyata.
-                    </p>
-
-                    <h3>Fokus Utama: Artificial Intelligence</h3>
-                    <p>
-                        Dalam 2 bidang, saya menemukan passion terbesar di bidang <strong>Artificial Intelligence</strong> mencakup:
-                    </p>
-                    <ul class="expertise-list">
-                        <li><strong>Machine Learning</strong> - Supervised Learning, Tuning Model, Klasifikasi, Time-Series</li>
-                        <li><strong>Algoritma & Struktur Data</strong> - Tree & Graph, Stack/Queue, Sorting & Searching pengolahan dataset</li>
-                        <li><strong>Web & App Development</strong> - UI/UX Design, Object Oriented Programming, Web Creating</li>
-                        <li><strong>IoT & Embedded Systems</strong> - Arsitektur, Wiring, Integrasi Cloud</li>
-                    </ul>
-
-                    <h3>Dilengkapi Hardware Skill</h3>
-                    <p>
-                        Saya mengerti bagaimana hardware berkomunikasi dengan software, constraint resource di embedded systems, dan optimasi performa real-time.
-                    </p>
+                    <h3>Fokus pada Artificial Intelligence</h3>
+                    <p>Saya mengkombinasikan fondasi analitis teknik dengan keahlian pemrograman tingkat lanjut. Spesialisasi saya terletak pada pengembangan model <strong>Machine Learning</strong> (ekstraksi data mentah, rekayasa fitur, hingga implementasi), serta visualisasi interaktif tingkat lanjut.</p>
+                    
+                    <h3>Kesiapan Industri</h3>
+                    <p>Sebagai pembelajar yang adaptif terhadap inovasi teknologi, saya siap berkolaborasi secara dinamis untuk peran AI/ML, Data Analytics, maupun Software Development guna memberikan solusi nyata bagi bisnis.</p>
                 </div>
-
-                <div class="about-stats">
+                <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-number">9+</div>
-                        <div class="stat-label">Proyek Robotik & AI</div>
+                        <div class="stat-num">3+</div>
+                        <div class="stat-label">Sistem AI & Data Pipeline</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">60%</div>
-                        <div class="stat-label">Fokus pada Pengembangan AI</div>
+                        <div class="stat-num">3.72</div>
+                        <div class="stat-label">Indeks Prestasi Kumulatif (IPK)</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">92%</div>
-                        <div class="stat-label">Tingkat Keberhasilan Proyek</div>
+                        <div class="stat-num">5+</div>
+                        <div class="stat-label">Sertifikasi Teknologi Global</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">8+</div>
-                        <div class="stat-label">Pemakaian Sensor</div>
+                        <div class="stat-num">90%</div>
+                        <div class="stat-label">Problem Solving & Analytical Thinking</div>
                     </div>
                 </div>
             </div>
@@ -111,262 +300,193 @@
 
     <section id="skills">
         <div class="max-w-6xl">
-            <h2 class="section-title">Tech Stack</h2>
-            
+            <h2 class="section-title">Kompetensi Teknis</h2>
             <div class="skills-grid">
+                
                 <div class="tech-card">
-                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1.5rem; color: #0d6efd;">🧠 AI & Machine Learning</h3>
-                    
-                    <div class="skill-category">
-                        <h4>Programming</h4>
-                        <div>
-                            <span class="skill-badge">Python</span>
-                            <span class="skill-badge">C/C++</span>
-                            <span class="skill-badge">JavaScript</span>
-                        </div>
+                    <h3>💻 Programming & AI</h3>
+                    <div class="skill-group">
+                        <h4>Languages</h4>
+                        <span class="badge">Python</span> <span class="badge">JavaScript</span> <span class="badge">HTML/CSS</span> <span class="badge">PHP</span>
                     </div>
-                    
-                    <div class="skill-category">
-                        <h4>Computer Vision</h4>
-                        <div>
-                            <span class="skill-badge">OpenCV</span>
-                            <span class="skill-badge">Image Processing</span>
-                        </div>
+                    <div class="skill-group">
+                        <h4>Machine Learning & Data</h4>
+                        <span class="badge">Google Colab</span> <span class="badge">Google Studio</span> <span class="badge">Excel</span> <span class="badge">Predictive Modeling</span>
                     </div>
-                    
-                    <div class="skill-category">
-                        <h4>Data & Signal Processing</h4>
-                        <div>
-                            <span class="skill-badge">Python</span>
-                            <span class="skill-badge">NumPy</span>
-                            <span class="skill-badge">Pandas</span>
-                            <span class="skill-badge">Scikit-learn</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h4>Dev Tools</h4>
-                        <div>
-                            <span class="skill-badge">Git & GitHub</span>
-                            <span class="skill-badge">VS Code</span>
-                            <span class="skill-badge">Google Colab</span>
-                        </div>
+                    <div class="skill-group">
+                        <h4>Web Development</h4>
+                        <span class="badge">CI 4</span> <span class="badge">PHP</span> <span class="badge">Bootstrap</span>
                     </div>
                 </div>
 
                 <div class="tech-card">
-                    <h3 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1.5rem; color: #00d4ff;">⚙️ Hardware & Systems</h3>
-                    
-                    <div class="skill-category">
-                        <h4>Mikrokontroller & Board</h4>
-                        <div>
-                            <span class="project-tag">Arduino</span>
-                            <span class="project-tag">ESP32</span>
-                        </div>
+                    <h3>⚙️ Data, Cloud & IoT</h3>
+                    <div class="skill-group">
+                        <h4>Visualization & Database</h4>
+                        <span class="badge">Looker Studio</span> <span class="badge">Navicat</span> <span class="badge">MySQL</span> <span class="badge">Firebase</span>
                     </div>
-                    
-                    <div class="skill-category">
-                        <h4>IoT Protokol & Cloud</h4>
-                        <div>
-                            <span class="project-tag">MQTT</span>
-                            <span class="project-tag">Firebase</span>
-                            <span class="project-tag">Blynk</span>
-                            <span class="project-tag">HTTP API</span>
-                        </div>
+                    <div class="skill-group">
+                        <h4>Embedded Systems & IoT</h4>
+                        <span class="badge">ESP32</span> <span class="badge">Arduino</span> <span class="badge">Sensors</span>
                     </div>
-                    
-                    <div class="skill-category">
-                        <h4>Sensor & Actuator</h4>
-                        <div>
-                            <span class="project-tag">MAX30102</span>
-                            <span class="project-tag">TCRT5000</span>
-                            <span class="project-tag">Ultrasonic HC-SR04</span>
-                            <span class="project-tag">DHT22</span>
-                            <span class="project-tag">Soil Moisture</span>
-                            <span class="project-tag">PH Sensor</span>
-                            <span class="project-tag">Infrared Sensor</span>
-                        </div>
-                    </div>
-
-                    <div class="skill-category">
-                        <h4>Robotics & Automation</h4>
-                        <div>
-                            <span class="project-tag">Fire-Fighter Line Follower</span>
-                            <span class="project-tag">Smart Monitoring Nutritions</span>
-                            <span class="project-tag">Water Filling Conveyor</span>
-                        </div>
+                    <div class="skill-group">
+                        <h4>Tools & Platform</h4>
+                        <span class="badge">Git / GitHub</span> <span class="badge">VS Code</span> <span class="badge">Colab</span> <span class="badge">Figma</span>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <section id="projects">
         <div class="max-w-6xl">
-            <h2 class="section-title">Featured Projects</h2>
-            
-            <div class="project-item tech-card">
-                <div class="project-grid">
-                    <div>
-                        <img src="smartnutritions.png" alt="Smart Monitoring Nutritions" class="project-image">
+            <h2 class="section-title">Studi Kasus Proyek</h2>
+
+            <div class="project-card">
+                <div class="img-container">
+                    <img src="dashboard.png" alt="Business Analytic Dashboard" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h3>Business Analytic Dashboard</h3>
+                    <p>Sistem pemantauan metrik interaktif yang dikembangkan selama masa magang di Metranet. Berfungsi untuk menerjemahkan alur bisnis yang kompleks menjadi visualisasi data yang mudah dipahami.</p>
+                    
+                    <div class="algo-box">
+                        <h4>💡 Technical Highlights:</h4>
+                        <ul>
+                            <li><strong>Real-time Data Monitoring</strong> untuk insight bisnis yang akurat.</li>
+                            <li><strong>Optimized SQL Queries</strong> untuk mengolah data transaksi mentah.</li>
+                            <li><strong>Interactive Visualization</strong> guna menyajikan informasi secara intuitif.</li>
+                        </ul>
                     </div>
                     
-                    <div>
-                        <h3>Smart Monitoring Nutritions</h3>
-                        <p class="project-desc">
-                            Sistem ini adalah solusi precision agriculture berbasis IoT (Internet of Things) dan Artificial Intelligence (AI) yang dirancang untuk memantau status nutrisi tanaman padi (Oryza Sativa) secara real-time
-                        </p>
-                        
-                        <div class="algorithm-list">
-                            <h4>🧠 AI Algorithms Implemented:</h4>
-                            <ul>
-                                <li><span style="color: #0d6efd; font-weight: 600;">Machine Learning</span> - Nutrient level prediction</li>
-                                <li><span style="color: #0d6efd; font-weight: 600;">Internet of Things</span> - Real-time data collection & monitoring</li>
-                                <li><span style="color: #0d6efd; font-weight: 600;">Expert System</span> - Nutrient recommendation engine</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="project-specs">
-                            <span class="spec-item"><strong>Platform:</strong> ESP32, TDK Sensor, PH Sensor, DHT 22, Soil Moisture, DS18B20 Sensor, Firebase, MQTT</span>
-                            <span class="spec-item"><strong>Performance:</strong> Akurasi mencapai 92% - 98% menggunakan model yang telah dilatih dengan dataset citra padi</span>
-                            <span class="spec-item"><strong>Result:</strong> Menghilangkan kebutuhan pengecekan manual harian ke seluruh area lahan, memungkinkan petani memantau kondisi lahan yang luas</span>
-                        </div>
+                    <div class="project-specs">
+                        <span class="spec-item"><strong>Platform:</strong> Looker, SQL, Database Relasional.</span>
+                        <span class="spec-item"><strong>Impact:</strong> Mendukung <i>data-driven decision making</i> oleh manajemen.</span>
                     </div>
                 </div>
             </div>
 
-            <div class="project-item tech-card">
-                <div class="project-grid">
-                    <div>
-                        <img src="linefollower.png" alt="Line Follower" class="project-image">
+            <div class="project-card">
+                <div class="img-container">
+                    <img src="idp.png" alt="IDP Multi-Rekening System" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h3>IDP Multi-Rekening System</h3>
+                    <p>Arsitektur <i>data pipeline</i> yang dirancang untuk mengekstrak, membersihkan, dan menstrukturkan data transaksi keuangan dari dokumen PDF mentah (rekening koran) secara otomatis.</p>
+                    
+                    <div class="algo-box">
+                        <h4>💡 Technical Highlights:</h4>
+                        <ul>
+                            <li>Membangun <strong>End-to-End Data Pipeline</strong> untuk pemrosesan dokumen masif.</li>
+                            <li>Menggunakan <strong>Automated Text Parsing (OCR)</strong> melalui skrip Python tingkat lanjut.</li>
+                            <li>Melakukan <strong>Relational Data Structuring</strong> untuk diunggah otomatis ke basis data.</li>
+                        </ul>
                     </div>
                     
-                    <div>
-                        <h3>Fire-Fighter Line Follower</h3>
-                        <p class="project-desc">
-                            Sistem otonom yang dirancang untuk menavigasi lintasan sambil secara aktif memindai lingkungan untuk mendeteksi sumber api. Setelah api terdeteksi, robot akan berhenti, mengarahkan kipas ke sumber panas, memadamkannya, dan kemudian kembali melanjutkan navigasi mengikuti garis. 
-                        </p>
-                        
-                        <div class="algorithm-list">
-                            <h4>🧠 AI Algorithms Implemented:</h4>
-                            <ul>
-                                <li><span style="color: #0d6efd; font-weight: 600;">PID Controller (Proportional-Integral-Derivative)</span> - Precise line following</li>
-                                <li><span style="color: #0d6efd; font-weight: 600;">Thresholding Logic & Sensor</span> - Flame detection</li>
-                                <li><span style="color: #0d6efd; font-weight: 600;">UI/UX Design</span> - User-friendly interface</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="project-specs">
-                            <span class="spec-item"><strong>Device:</strong> ESP32, Line Sensor, Flame Sensors</span>
-                            <span class="spec-item"><strong>Performance:</strong> Dengan tuning PID yang tepat, robot dapat mengikuti garis pada kecepatan tinggi tanpa keluar jalur</span>
-                            <span class="spec-item"><strong>Result:</strong> Robot mampu menyelesaikan lintasan labirin atau sirkuit balap tanpa bantuan manusia</span>
-                        </div>
+                    <div class="project-specs">
+                        <span class="spec-item"><strong>Tech Stack:</strong> Python, PHP, PostgreSQL, OCR.</span>
+                        <span class="spec-item"><strong>Outcome:</strong> Mengotomatiskan entri data manual menjadi format siap analisis.</span>
                     </div>
                 </div>
             </div>
 
-            <div class="project-item tech-card">
-                <div class="project-grid">
-                    <div>
-                        <img src="redesign.png" alt="Redesign Website" class="project-image">
+            <div class="project-card">
+                <div class="img-container">
+                    <img src="smartnutritions.png" alt="Smart Monitoring Nutrition" class="project-img">
+                </div>
+                <div class="project-info">
+                    <h3>Smart Monitoring Nutrition</h3>
+                    <p>Sistem terintegrasi berbasis Internet of Things (IoT) yang dirancang untuk memantau indikator kesehatan dan parameter nutrisi pengguna secara <i>real-time</i> dan nirkabel.</p>
+                    
+                    <div class="algo-box">
+                        <h4>💡 Technical Highlights:</h4>
+                        <ul>
+                            <li>Membangun infrastruktur <strong>Real-time Data Transmission</strong> via cloud.</li>
+                            <li>Mengembangkan model <strong>Machine Learning</strong> untuk prediksi level nutrisi dengan akurasi tinggi.</li>
+                            <li>Mendesain antarmuka <strong>Interactive Mobile UI/UX</strong> untuk kemudahan pengguna.</li>
+                        </ul>
                     </div>
                     
-                    <div>
-                        <h3>Website Yamaha Fortuna Cirebon</h3>
-                        <p class="project-desc">
-                            Website ini adalah redesign platform digital Yamaha Fortuna Motor, dealer resmi 3S (Sales, Service, Sparepart) yang berbasis di Cirebon dan Jawa Barat. Sistem ini berfungsi sebagai "showroom digital" yang memfasilitasi pelanggan untuk melihat katalog motor, memesan layanan servis (booking service), serta mendapatkan informasi suku cadang asli Yamaha secara daring tanpa harus datang ke lokasi fisik.
-                        </p>
-                        
-                        <div class="algorithm-list">
-                            <h4>🧠 AI Algorithms Implemented:</h4>
-                            <ul>
-                                <li><span style="color: #0d6efd; font-weight: 600;">Search & Filtering Algorithms</span> - Optimized product search</li>
-                                <li><span style="color: #0d6efd; font-weight: 600;">Scheduling Logic (Booking System)</span> - Efficient service appointment management</li>
-                                <li><span style="color: #0d6efd; font-weight: 600;">Responsive Web Design</span> - Seamless experience across devices</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="project-specs">
-                            <span class="spec-item"><strong>Platform:</strong> Laragon, Figma, VS Code</span>
-                            <span class="spec-item"><strong>Performance:</strong> Menyediakan akses informasi 24/7 mengenai stok dan harga, yang sebelumnya hanya bisa didapat pada jam kerja dealer</span>
-                            <span class="spec-item"><strong>Impact:</strong> Mengubah proses manual dealer konvensional menjadi hibrida, di mana tahap riset produk dan pendaftaran servis dilakukan secara digital</span>
-                        </div>
+                    <div class="project-specs">
+                        <span class="spec-item"><strong>Tech Stack:</strong> Python, Scikit-Learn, ESP32, Firebase, MQTT.</span>
+                        <span class="spec-item"><strong>Impact:</strong> Menghasilkan solusi kesehatan digital terpadu dengan integrasi hardware-software.</span>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
     <section id="education">
         <div class="max-w-6xl">
-            <h2 class="section-title">Education & Sertification</h2>
-            
-            <div class="education-grid">
-                <div class="tech-card">
-                    <div class="edu-item">
-                        <div class="edu-icon">🎓</div>
-                        <div class="edu-content" style="flex: 1;">
-                            <h3>Mahasiswa Aktif</h3>
-                            <p class="edu-subtitle">Mekatronika & Kecerdasan Buatan</p>
-                            <p>Universitas Pendidikan Indonesia</p>
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem; color: #555555;">GPA: 3.72/4.0 | Coursework: Machine Learning, Expert System, Robotics, Control Systems, Signal Processing</p>
-                        </div>
+            <h2 class="section-title">Pendidikan & Sertifikasi Global</h2>
+            <div class="edu-grid">
+                
+                <div class="edu-card">
+                    <div class="edu-icon">🎓</div>
+                    <div class="edu-details">
+                        <h3>Universitas Pendidikan Indonesia</h3>
+                        <div class="subtitle">Mekatronika & Kecerdasan Buatan</div>
+                        <p>Fokus Akademik: Arsitektur Perangkat Lunak, Algoritma AI, Pemrosesan Sinyal Digital.</p>
+                        <ul>
+                            <li><strong>Status:</strong> Mahasiswa Semester 6 (2023 - Sekarang)</li>
+                            <li><strong>GPA:</strong> 3.72 / 4.00</li>
+                        </ul>
                     </div>
                 </div>
 
-                <div class="tech-card">
-                    <div class="edu-item">
-                        <div class="edu-icon">🏆</div>
-                        <div class="edu-content" style="flex: 1;">
-                            <h3>Sertifikasi & Prestasi</h3>
-                            <ul style="margin-top: 1rem;">
-                                <li style="color: #555555; margin-bottom: 0.5rem;"><span style="color: #0d6efd; font-weight: 700;">Oracle Cloud Infrastructure</span> - Oracle</li>
-                                <li style="color: #555555; margin-bottom: 0.5rem;"><span style="color: #0d6efd; font-weight: 700;">Data Analysis with Python</span> - IBM</li>
-                                <li style="color: #555555;"><span style="color: #0d6efd; font-weight: 700;">Top 500 Applicants in Career Scholarship 3.0 2023</span> - Ai4Impact</li>
-                            </ul>
-                        </div>
+                <div class="edu-card">
+                    <div class="edu-icon">🏆</div>
+                    <div class="edu-details">
+                        <h3>Lisensi & Sertifikasi</h3>
+                        <div class="subtitle">Validasi Kompetensi Industri</div>
+                        <ul>
+                            <li><strong>Machine Learning with Python</strong> – IBM.</li>
+                            <li><strong>Oracle Certified Foundations Associate</strong> – Oracle.</li>
+                            <li><strong>AI Training</strong> – Generation Girl x Google.org.</li>
+                            <li><strong>Digital Platform Testing ASEAN</strong> – Infoxchange.</li>
+                        </ul>
                     </div>
                 </div>
+
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <div class="max-w-4xl">
-            <div class="contact-buttons" style="flex-wrap: wrap;">
-                
-                <a href="https://linkedin.com/in/aisyahfaradilafatah" class="cta-button" target="_blank">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.824 0-9.744h3.554v1.378c.43-.664 1.199-1.61 2.92-1.61 2.134 0 3.732 1.395 3.732 4.396v5.58zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.705 0-.955.768-1.703 1.959-1.703 1.188 0 1.913.75 1.928 1.705 0 .947-.74 1.703-1.972 1.703zm1.581 11.597H3.748V9.708h3.17v10.744zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/>
-                    </svg>
-                    LinkedIn
-                </a>
-
-                <a href="https://github.com/aisyahfaradilafatah" class="cta-button" target="_blank" style="background: #333;">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                    </svg>
-                    GitHub
-                </a>
-
-                <a href="mailto:aisyahfatah1@gmail.com" class="cta-button" style="background: linear-gradient(135deg, #ea4335 0%, #ff6b6b 100%);">
-                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                    </svg>
+        <div class="max-w-6xl contact-wrap">
+            <h2 class="section-title" style="margin-bottom: 1rem;">Mari Berkolaborasi</h2>
+            <p>Saya selalu terbuka untuk diskusi mengenai peluang pengembangan <i>Machine Learning</i>, arsitektur <i>Data Pipeline</i>, atau inovasi analitik data. Let's Connect!</p>
+            
+            <div class="contact-buttons">
+                <a href="mailto:aisyahfatah1@gmail.com" class="btn-primary" style="background: #ea4335;">
+                    <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
                     Email
                 </a>
-
+                <a href="https://linkedin.com/in/aisyahfaradilafatah" target="_blank" class="btn-primary" style="background: #0077b5;">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.475-2.236-1.986-2.236-1.081 0-1.722.722-2.004 1.418-.103.249-.129.597-.129.946v5.441h-3.554s.05-8.824 0-9.744h3.554v1.378c.43-.664 1.199-1.61 2.92-1.61 2.134 0 3.732 1.395 3.732 4.396v5.58zM5.337 8.855c-1.144 0-1.915-.758-1.915-1.705 0-.955.768-1.703 1.959-1.703 1.188 0 1.913.75 1.928 1.705 0 .947-.74 1.703-1.972 1.703zm1.581 11.597H3.748V9.708h3.17v10.744zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://github.com/aisyahfaradilafatah" target="_blank" class="btn-primary" style="background: #333;">
+                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    GitHub
+                </a>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>Aisyah Faradila Fatah | Portofolio</p>
-        <p>Last updated: 2026</p>
+        <p>© Aisyah Faradila Fatah. All Rights Reserved.</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
 </body>
-
 </html>
-
